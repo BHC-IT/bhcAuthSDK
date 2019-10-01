@@ -50,12 +50,12 @@ export default class bhcAuth {
 
 }
 
-function getUri(){
+function GetUri(){
 	return uri
 }
 
-function getQuery(){
+function GetQuery(){
 	return query
 }
 
-export {getUri, getQuery}
+export {GetUri, GetQuery}
