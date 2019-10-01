@@ -5,4 +5,4 @@ import XMLHttpRequestAsync from './src/httpWrapper'
 
 export default bhc
 
-export {getUri, getQuery, xQuery, User, XMLHttpRequestAsync}
+export {getUri, getQuery, Query, User, XMLHttpRequestAsync}
