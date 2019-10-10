@@ -26,14 +26,18 @@ export default class Query {
 		this.url = url;
 	}
 
-	async query(endpoint, method, header, body){
+	async query(endpoint, method, header, body = {}){
 		var request = new XMLHttpRequestAsync();
-		request.open('POST', `http://${this.url}${endpoint}`, true);
+		request.open(method, `http://${this.url}${endpoint}`, true);
 		Object.keys(header).forEach((key) => {
 			request.setRequestHeader(key, header[key]);
 		});
 
-		let res = await request.send(composeRequest(body));
+		let res = null;
+		if (method === 'GET')
+			res = await request.send(composeRequest(body));
+		else
+			res = await request.send(composeRequest(body));
 		return (res);
 	}
 

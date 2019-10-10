@@ -17,7 +17,7 @@ export default class bhcAuth {
 
 	async login(username, password){
 		try {
-			let res = await this.query.query("/auth/login", "post", {'Content-Type':'application/x-www-form-urlencoded'}, {
+			let res = await this.query.query("/auth/login", "POST", {'Content-Type':'application/x-www-form-urlencoded'}, {
 				username:username,
 				password:password,
 				grant_type:'password',
@@ -34,7 +34,7 @@ export default class bhcAuth {
 
 	async refresh(refresh_token){
 		try {
-			let res = await this.query.query("/auth/login", "post", {'Content-Type':'application/x-www-form-urlencoded'}, {
+			let res = await this.query.query("/auth/login", "POST", {'Content-Type':'application/x-www-form-urlencoded'}, {
 				refresh_token:refresh_token,
 				grant_type:'refresh_token',
 				client_id:this.client_ID,
@@ -43,6 +43,19 @@ export default class bhcAuth {
 			res = JSON.parse(res);
 			let user = new User(res);
 			return (user);
+		} catch (e) {
+			throw e;
+		}
+	}
+
+	async verify(access_token){
+		try {
+			let res = await this.query.query("/info/verifyToken", 'GET', {Authorization:`Bearer ${access_token}`});
+			res = JSON.parse(res);
+			if (res.message === "validated")
+				return (true);
+			else
+				throw ("invlide token");
 		} catch (e) {
 			throw e;
 		}
