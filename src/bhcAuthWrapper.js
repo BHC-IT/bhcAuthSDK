@@ -55,7 +55,7 @@ export default class bhcAuth {
 			if (res.message === "validated")
 				return (true);
 			else
-				throw ("invlide token");
+				throw ("invalide token");
 		} catch (e) {
 			throw e;
 		}
