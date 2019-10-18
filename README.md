@@ -9,4 +9,3 @@ npm -i -s @bhc/bhcauthsdk
 ```js
 import bhcAuth, {getUri, getQuery, Query, User, XMLHttpRequestAsync} from '@bhc/bhcauthsdk'
 ```
-
