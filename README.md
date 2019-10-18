@@ -10,8 +10,8 @@ npm -i -s @bhc/bhcauthsdk
 import bhcAuth, {getUri, getQuery, Query, User, XMLHttpRequestAsync} from '@bhc/bhcauthsdk'
 ```
 
-#usage
-##login
+# usage
+## login
 ```js
 let auth = new bhcAuth(client_id, client_secret);
 auth.login(user_login, user_password).then(user => {
@@ -19,8 +19,8 @@ auth.login(user_login, user_password).then(user => {
 });
 ```
 
-#bhcAuth
-##methods
+# bhcAuth
+## methods
 ```js
 constructor(client_ID, client_secret)
 async login(username, password)
@@ -28,8 +28,8 @@ async refresh(refresh_token)
 async verify(access_token)
 ```
 
-#user
-##methods
+# user
+## methods
 ```js
 constructor(obj)
 getAccessToken()
