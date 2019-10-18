@@ -1,6 +1,10 @@
 ***install***
-```bash npm -i -s @bhc/bhcauthsdk```
+
+```bash
+npm -i -s @bhc/bhcauthsdk```
 
 ***import***
-```js import bhcAuth, {getUri, getQuery, Query, User, XMLHttpRequestAsync}```
+
+```js
+dimport bhcAuth, {getUri, getQuery, Query, User, XMLHttpRequestAsync}```
 
