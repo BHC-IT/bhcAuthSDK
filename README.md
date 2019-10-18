@@ -11,6 +11,13 @@ import bhcAuth, {getUri, getQuery, Query, User, XMLHttpRequestAsync} from '@bhc/
 ```
 
 # usage
+## create a user
+```js
+let auth = new bhcAuth(client_id, client_secret);
+auth.createUser(user_login, user_password).then(user => {
+});
+```
+
 ## login
 ```js
 let auth = new bhcAuth(client_id, client_secret);
