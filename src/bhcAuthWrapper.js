@@ -15,6 +15,21 @@ export default class bhcAuth {
 			query = this.query;
 	}
 
+	async createUser(username, password){
+		try {
+			let res = await this.query.query("/auth/registerUser", "POST", {'Content-Type':'application/x-www-form-urlencoded'}, {
+					username:username,
+					password:password,
+					client_id:this.client_ID,
+					client_secret:this.client_secret
+				});
+				res = JSON.parse(res);
+				return (res);
+		} catch (e) {
+			throw e;
+		}
+	}
+
 	async login(username, password){
 		try {
 			let res = await this.query.query("/auth/login", "POST", {'Content-Type':'application/x-www-form-urlencoded'}, {

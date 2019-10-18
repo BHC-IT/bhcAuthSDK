@@ -32,6 +32,7 @@ async verify(access_token)
 ## methods
 ```js
 constructor(obj)
+async createUser(username, password)
 getAccessToken()
 getInfoUser()
 getRefreshToken()
