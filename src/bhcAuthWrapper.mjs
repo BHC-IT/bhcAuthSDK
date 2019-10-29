@@ -1,5 +1,6 @@
 import Query from './query'
 import User from './user'
+import jwt from 'jwt-simple';
 
 var uri = null;
 var query = null;
@@ -67,13 +68,25 @@ export default class bhcAuth {
 		try {
 			let res = await this.query.query("/info/verifyToken", 'GET', {Authorization:`Bearer ${access_token}`});
 			res = JSON.parse(res);
-			if (res.message === "validated")
+			if (res.message === "validated" && )
 				return (true);
 			else
 				throw ("invalide token");
 		} catch (e) {
 			throw e;
 		}
+	}
+
+	verifyProvidedSource(access_token){
+		try {
+			return jwt.decode(access_token, this.client_secret);
+		} catch (e) {
+			return (null);
+		}
+	}
+
+	getInfoFromToken(access_token){
+		return jwt.decode(access_token, null, true);
 	}
 
 }

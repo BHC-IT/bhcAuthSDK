@@ -19,7 +19,7 @@ export default class XMLHttpRequestAsync {
 					if (this.status > 300)
 						reject({status:this.status, ...(JSON.parse(this.response))})
 					else
-						resolve(this.response);
+						resolve(this.response ? this.response : this.responseText);
 				});
 			this.xml.send(body);
 		});
