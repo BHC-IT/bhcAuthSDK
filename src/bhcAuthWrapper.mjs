@@ -8,9 +8,9 @@ export default class bhcAuth {
 	constructor(client_ID, client_secret, stage = "prod"){
 		this.client_ID = client_ID;
 		this.client_secret = client_secret;
-		this.query = new Query(stage === "prod" ? "127.0.0.1:9090" : stage);
+		this.query = new Query(stage === "prod" ? "86.252.240.205:9090" : stage);
 		if (uri === null)
-			uri = stage === "prod" ? "127.0.0.1:9090" : stage
+			uri = stage === "prod" ? "86.252.240.205:9090" : stage
 		if (query === null)
 			query = this.query;
 	}
