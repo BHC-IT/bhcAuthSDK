@@ -1,8 +1,9 @@
 {
 	"name": "@bhc/bhcauthsdk",
-	"version": "1.0.18",
+	"version": "1.0.20",
 	"description": "",
-	"main": "index.mjs",
+	"module":"index.mjs",
+	"main": "index.js",
 	"dependencies": {
 		"jwt-simple": "^0.5.6"
 	},
