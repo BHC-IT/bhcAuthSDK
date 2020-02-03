@@ -7,12 +7,9 @@ npm i -s @bhc/bhcauthsdk
 # import
 
 ```js
-// in es6
-import bhcAuth, {getUri, getQuery, Query, User, XMLHttpRequestAsync} from '@bhc/bhcauthsdk'
 
 // in node
-require = require("@std/esm")(module) // or use --experimental-modules flag
-const bhcAuth = require('@bhc/bhcauthsdk').default
+const bhcAuth = require('@bhc/bhcauthsdk').bhcAuth
 ```
 
 # usage
