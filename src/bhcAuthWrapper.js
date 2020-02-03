@@ -1,7 +1,7 @@
 const  Query = require('./query.js');
 const  User = require('./user.js');
 const {getUri, setUri, getQuery, setQuery} = require('./queryHold');
-const jwt = require('expo-jwt');
+const jwt = require('jwt-simple');
 
 class bhcAuth {
 	constructor(client_ID, client_secret, stage = "prod"){
