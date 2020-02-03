@@ -1,4 +1,4 @@
-const jwt = require('expo-jwt');
+const jwt = require('jwt-simple');
 const bhcAuth = require('./bhcAuthWrapper.js');
 const {getUri, setUri, getQuery, setQuery} = require('./queryHold');
 
