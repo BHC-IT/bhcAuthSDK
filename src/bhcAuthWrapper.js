@@ -1,19 +1,17 @@
-const  Query = require('./query').default;
-const  User = require('./user').default;
-const jwt = require('jwt-simple');
+const  Query = require('./query.js');
+const  User = require('./user.js');
+const {getUri, setUri, getQuery, setQuery} = require('./queryHold');
+const jwt = require('expo-jwt');
 
-var uri = null;
-var query = null;
-
-exports.default = class bhcAuth {
+class bhcAuth {
 	constructor(client_ID, client_secret, stage = "prod"){
 		this.client_ID = client_ID;
 		this.client_secret = client_secret;
 		this.query = new Query(stage === "prod" ? "86.252.240.205:9090" : stage);
-		if (uri === null)
-			uri = stage === "prod" ? "86.252.240.205:9090" : stage
-		if (query === null)
-			query = this.query;
+		if (getUri() === null)
+			setUri(stage === "prod" ? "86.252.240.205:9090" : stage);
+		if (getQuery() === null)
+			setQuery(this.query)
 	}
 
 	async createUser(username, password){
@@ -68,7 +66,7 @@ exports.default = class bhcAuth {
 		try {
 			let res = await this.query.query("/info/verifyToken", 'GET', {Authorization:`Bearer ${access_token}`});
 			res = JSON.parse(res);
-			if (res.message === "validated" && )
+			if (res.message === "validated")
 				return (true);
 			else
 				throw ("invalide token");
@@ -91,14 +89,4 @@ exports.default = class bhcAuth {
 
 }
 
-function getUri(){
-	return uri
-}
-
-function getQuery(){
-	return query
-}
-
-exports.getUri = getUri;
-exports.getQuery = getQuery;
-exports.bhcAuth = bhcAuth;
+module.exports = bhcAuth;

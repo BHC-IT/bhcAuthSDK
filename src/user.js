@@ -1,7 +1,8 @@
-const jwt = require('jwt-simple');
-const {bhcAuth, getQuery} = require('./bhcAuthWrapper');
+const jwt = require('expo-jwt');
+const bhcAuth = require('./bhcAuthWrapper.js');
+const {getUri, setUri, getQuery, setQuery} = require('./queryHold');
 
-exports.default = class User {
+module.exports = class User {
 	constructor(obj){
 		this.items = {};
 		this.infoUser = null;

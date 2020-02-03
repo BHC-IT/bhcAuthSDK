@@ -1,4 +1,4 @@
-exports.default =  class XMLHttpRequestAsync {
+module.exports =  class XMLHttpRequestAsync {
 	constructor(){
 		this.xml = new XMLHttpRequest();
 		this.onLoadSet = false;

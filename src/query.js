@@ -9,7 +9,7 @@
 // 	}));
 // }
 
-const XMLHttpRequestAsync = require('./src/httpWrapper').default;
+const XMLHttpRequestAsync = require('./httpWrapper.js');
 
 function composeRequest(object){
 	let stringed = "";
@@ -21,7 +21,7 @@ function composeRequest(object){
 	return (stringed);
 }
 
-exports.default = class Query {
+module.exports = class Query {
 	constructor(url){
 		this.url = url;
 	}

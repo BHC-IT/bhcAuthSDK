@@ -1,17 +1,9 @@
-const bhcAuth = require('./src/bhcAuthWrapper').default;
-const {getUri, getQuery} = require('./src/bhcAuthWrapper');
-const Query = require('./src/query').default;
-const User = require('./src/user').default;
-const XMLHttpRequestAsync = require('./src/httpWrapper').default;
+const bhcAuth = require('./src/bhcAuthWrapper.js');
+const Query = require('./src/query.js');
+const User = require('./src/user.js');
+const {getUri, setUri, getQuery, setQuery} = require('./src/queryHold');
+const XMLHttpRequestAsync = require('./src/httpWrapper.js');
 
+global.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.getUri = getUri;
-exports.getQuery = getQuery;
-exports.Query = Query;
-exports.User = User;
-exports.XMLHttpRequestAsync = XMLHttpRequestAsync;
-exports.default = bhcAuth;
-exports.bhcAuth = bhcAuth;
+module.exports = {getUri, getQuery, Query, User, XMLHttpRequestAsync, bhcAuth, bhcAuth}
